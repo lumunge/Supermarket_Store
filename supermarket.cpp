@@ -3,6 +3,8 @@
 #include<vector>
 #include<iterator>
 #include<bits/stdc++.h>
+#include<sstream>
+#include<limits>
 using namespace std;
 
 void printMap(map<string, pair<int, int>> stock){
@@ -26,8 +28,26 @@ int main(){
     }else if(choice == 2){
         //add items to cart
         cout << "Enter product name: ", cin >> item;
-        cout << "Enter product amount(kgs): ", cin >> amount;
-        cout << "Enter product price: ", cin >> price;
+        while(true){
+            cout << "Enter product amount(kgs): ";
+            if(cin >> amount){
+                break;
+            }else{
+                cout << "Invalid amount!! \n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        }
+        while(true){
+            cout << "Enter product price: ";
+            if(cin >> price){
+                break;
+            }else{
+                cout << "Invalid Price!! \n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        }
         stock.insert({item, {amount, price}});
         cout << "Success!" << endl;
         printMap(stock);
