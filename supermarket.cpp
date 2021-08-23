@@ -8,9 +8,9 @@
 using namespace std;
 
 void printMap(map<string, pair<int, int>> stock){
+    cout << "NAME \t" << "QTY(kg) \t" << "PRICE(kg)" << endl;
     for(auto itr = stock.begin(); itr != stock.end(); ++itr){
-        cout << "NAME \t" << "QTY \t" << "PRICE" << endl;
-        cout << itr->first << "\t" << itr->second.first << "\t" << itr->second.second << "\n";
+        cout << itr->first << "\t" << itr->second.first << "\t\t" << itr->second.second << "\n";
     }
 }
 
@@ -64,18 +64,24 @@ int main(){
                 cout << "Empty Market!!" << endl;
             }else{
                 cout << "Enter item name ", cin >> item;
-                cout << "Enter amount(kgs) ", cin >> amount;
+                cout << "Enter amount(kgs) ";
                 it = stock.find(item);
                 if(it == stock.end()){
                     cout << "Item out of stock!!" << endl;
-                }else if(amount > it->second.first){
-                    cout << item << " running low, Please reduce your order" << endl;
                 }else{
-                    cout << "Item was added to cart!" << endl;
-                    cart.insert({it->first, {amount, it->second.second}});
-                    it->second.first -= amount;
-                    cout << "----------------YOUR CART-------------------" << endl;
-                    printMap(cart);
+                    while(true){
+                        cin >> amount;
+                        if(amount < it->second.first){
+                            cout << "Item was added to cart!" << endl;
+                            cart.insert({it->first, {amount, it->second.second}});
+                            it->second.first -= amount;
+                            cout << "----------------YOUR CART-------------------" << endl;
+                            printMap(cart);
+                            break;
+                        }else{
+                            cout << item << " running low, Please lower quantity ";
+                        }
+                    }
                 }
             }
         }else if(choice == 4){
