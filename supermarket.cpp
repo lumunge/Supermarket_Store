@@ -3,7 +3,6 @@
 #include<vector>
 #include<iterator>
 #include<bits/stdc++.h>
-#include<sstream>
 #include<limits>
 using namespace std;
 
@@ -59,6 +58,7 @@ int main(){
             cout << "Success!" << endl;
             printMap(stock);
         }else if(choice == 3){
+            int total = 1;
             //check out items
             if(stock.size() == 0){
                 cout << "Empty Market!!" << endl;
@@ -77,6 +77,10 @@ int main(){
                             it->second.first -= amount;
                             cout << "----------------YOUR CART-------------------" << endl;
                             printMap(cart);
+                            for(auto ct = cart.begin(); ct != cart.end(); ++ct){
+                                total += ct->second.first * ct->second.second;
+                            }
+                            cout << "Total Payable: $" << total-1 << endl;
                             break;
                         }else{
                             cout << item << " running low, Please lower quantity ";
