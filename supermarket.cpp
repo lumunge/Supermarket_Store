@@ -17,6 +17,7 @@ int main(){
     map<string, pair<int, int>> stock;
     map<string, pair<int, int>> cart;
     map<string, pair<int, int>>::iterator it;
+    int total = 0;
     int choice;
     string item;
     int amount, price;
@@ -32,6 +33,12 @@ int main(){
                 printMap(stock);
             }
         }else if(choice == 2){
+            if(cart.size() == 0){
+                cout << "Empty Cart!! " << endl;
+            }else{
+                printMap(cart);
+            }
+        }else if(choice == 3){
             //add items to cart
             cout << "Enter product name: ", cin >> item;
             while(true){
@@ -57,11 +64,10 @@ int main(){
             stock.insert({item, {amount, price}});
             cout << "Success!" << endl;
             printMap(stock);
-        }else if(choice == 3){
-            int total = 1;
+        }else if(choice == 4){
             //check out items
             if(stock.size() == 0){
-                cout << "Empty Market!!" << endl;
+                cout << "Empty Supermarket!!" << endl;
             }else{
                 cout << "Enter item name ", cin >> item;
                 cout << "Enter amount(kgs) ";
@@ -77,10 +83,13 @@ int main(){
                             it->second.first -= amount;
                             cout << "----------------YOUR CART-------------------" << endl;
                             printMap(cart);
+                            /*
                             for(auto ct = cart.begin(); ct != cart.end(); ++ct){
                                 total += ct->second.first * ct->second.second;
                             }
-                            cout << "Total Payable: $" << total-1 << endl;
+                            cout << "Total Payable: $" << total << endl;
+                            break;
+                            */
                             break;
                         }else{
                             cout << item << " running low, Please lower quantity ";
@@ -88,7 +97,12 @@ int main(){
                     }
                 }
             }
-        }else if(choice == 4){
+        }else if(choice == 5){
+            for(auto ct = cart.begin(); ct != cart.end(); ++ct){
+                total += ct->second.first * ct->second.second;
+            }
+            cout << "Total Payable: $" << total << endl;
+        }else if(choice == 6){
             //search items
             cout << "Enter item name to search ", cin >> item;
             it = stock.find(item);
@@ -97,7 +111,7 @@ int main(){
             }else{
                 cout << it->first << " " << it->second.first << " " << it->second.second << endl;
             }
-        }else if(choice == 5){
+        }else if(choice == 7){
             //Edit items
             cout << "Enter name of item ", cin >> item;
             it = cart.find(item);
@@ -116,7 +130,7 @@ int main(){
                 cout << "Items changed Successfully! " << endl;
                 cout << it->first << " " << it->second.first << " " << it->second.second << endl;
             }
-        }else if(choice == 6){
+        }else if(choice == 8){
             cout << "----------------------Leaving Supermarket---------------------" << endl;
             break;
             //quit()
