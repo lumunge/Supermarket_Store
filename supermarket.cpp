@@ -70,11 +70,11 @@ int main(){
                 cout << "Empty Supermarket!!" << endl;
             }else{
                 cout << "Enter item name ", cin >> item;
-                cout << "Enter amount(kgs) ";
                 it = stock.find(item);
                 if(it == stock.end()){
                     cout << "Item out of stock!!" << endl;
                 }else{
+                    cout << "Enter amount(kgs) ";
                     while(true){
                         cin >> amount;
                         if(amount < it->second.first){
