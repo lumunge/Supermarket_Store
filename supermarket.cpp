@@ -22,7 +22,7 @@ int main(){
     int amount, price;
     while(true){
         cout << "---------------Welcome to the Supermarket-----------------" << endl;
-        cout << " 1: View Items \n 2: Add To Cart \n 3: Check Out \n 4: Search Items \n 5: Edit Items \n 6: Exit Market " << endl;
+        cout << " 1: View Stock \n 2: View Cart \n 3: Add To Stock \n 4: Add to Cart \n 5: Check Out \n 6: Search Items \n 7: Edit Items \n 8: Exit Market " << endl;
         cout << "Make a choice ", cin >> choice;
         if(choice == 1){
             //display items
@@ -99,6 +99,23 @@ int main(){
             }
         }else if(choice == 5){
             //Edit items
+            cout << "Enter name of item ", cin >> item;
+            it = cart.find(item);
+            if(it == cart.end()){
+                cout << "No such item your cart! " << endl;
+            }else{
+                cout << it->first << " " << it->second.first << " " << it->second.second << endl;
+                cout << "Change name ", cin >> item;
+                cout << "Change amount ", cin >> amount;
+                cout << "Change price ", cin >> price;
+                /*
+                it->first = item;
+                it->second.first = amount;
+                it->second.second = price;
+                */
+                cout << "Items changed Successfully! " << endl;
+                cout << it->first << " " << it->second.first << " " << it->second.second << endl;
+            }
         }else if(choice == 6){
             cout << "----------------------Leaving Supermarket---------------------" << endl;
             break;
