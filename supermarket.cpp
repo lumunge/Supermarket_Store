@@ -25,8 +25,8 @@ int main(){
     int amount, price;
     while(true){
         cout << "---------------Welcome to the Supermarket-----------------" << endl;
-        cout << " 1: View Stock \n 2: View Cart \n 3: Add To Stock \n 4: Add to Cart \n 5: Check Out \n 6: Search Items \n 7: Edit Items \n 8: Clear Cart \n 9: Exit Market " << endl;
-        cout << "Make a choice ", cin >> choice;
+        cout << "[1] View Stock" << "       \t " << "[2] View Cart \n[3] Add To Stock" << "\t" << " [4] Add to Cart \n[5] CHECK OUT \n[6] Search Items "<< "  \t " << "[7] Edit Items \n[8] Clear Cart \t\t [9] Exit Market " << endl;
+        cout << "Choose an option: ", cin >> choice;
         if(choice == 1){
             //display items
             if(stock.size() == 0){
