@@ -90,6 +90,13 @@ int main(){
             }
         }else if(choice == 4){
             //search items
+            cout << "Enter item name to search ", cin >> item;
+            it = stock.find(item);
+            if(it == stock.end()){
+                cout << "Item is not avaliable " << endl;
+            }else{
+                cout << it->first << " " << it->second.first << " " << it->second.second << endl;
+            }
         }else if(choice == 5){
             //Edit items
         }else if(choice == 6){
