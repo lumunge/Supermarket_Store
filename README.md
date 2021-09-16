@@ -19,7 +19,7 @@
 
 ### PROJECT SCREENSHOT
 
-![Screenshot_20210916_184745](https://user-images.githubusercontent.com/58906058/133643651-381324d4-d096-4895-bbc9-39a8162f4d1f.png)
+![supermarket](https://user-images.githubusercontent.com/58906058/133644439-7c13d920-5f77-4a27-92ca-0c6693f144ce.png)
 
 ### SETUP
 
