@@ -24,6 +24,6 @@
 ### SETUP
 
     * git clone https://github.com/lumunge/Supermarket_Store.git
-    * g++ supermarket.cpp
-    * ./a.out
+    * g++ -o supermarket.exe supermarket.cpp
+    * ./supermarket.exe
 
